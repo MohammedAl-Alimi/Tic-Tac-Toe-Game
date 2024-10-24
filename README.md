@@ -1,7 +1,7 @@
 # Tic-Tac-Toe Web Game
 
 A simple and interactive Tic-Tac-Toe game built using HTML, CSS, and JavaScript. This project allows two players to play Tic-Tac-Toe in a browser, enter their names, and enjoy a fully functional game with a clean user interface.
-
+It was deployed on Vercel here is the link : https://tic-tac-toe-game-lime-kappa.vercel.app/
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
