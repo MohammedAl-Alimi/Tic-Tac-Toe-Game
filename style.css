@@ -1,0 +1,156 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --cell-size: 150px; /* Increased cell size */
+    --mark-size: calc(var(--cell-size) * .9);
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white; /* Static white background */
+}
+
+.container {
+    display: flex;
+    size: 50px;
+    gap: 50px; /* Space between form and game board */
+}
+
+.player-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px; /* Reduced padding */
+    border: 20px solid #333;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px; /* Reduce width */
+}
+
+.player-input h2 {
+    margin-bottom: 10px; /* Reduced margin */
+    font-size: 18px; /* Smaller font size */
+}
+
+.player-input label {
+    margin-bottom: 3px; /* Smaller margin between label and input */
+    font-size: 14px; /* Smaller font size */
+}
+
+.player-input input {
+    margin-bottom: 10px; /* Reduced margin */
+    padding: 5px; /* Smaller padding inside input fields */
+    width: 180px; /* Reduced input width */
+    font-size: 14px; /* Smaller font size */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.player-input button {
+    padding: 5px 10px; /* Smaller button */
+    font-size: 14px; /* Smaller font size */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%; /* Make button fill the width of the form */
+}
+
+.game-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, var(--cell-size));
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 5px solid #333; /* Thicker border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cell.x::before, .cell.x::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size) * .15);
+    height: var(--mark-size);
+    background-color: #333;
+}
+
+.cell.x::before {
+    transform: rotate(45deg);
+}
+
+.cell.x::after {
+    transform: rotate(-45deg);
+}
+
+.cell.o::before {
+    content: '';
+    width: var(--mark-size);
+    height: var(--mark-size);
+    border: calc(var(--mark-size) * .1) solid #333;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.winning-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 24px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.winning-message.show {
+    display: flex;
+    opacity: 1;
+}
+
+.winning-message button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#playerTurn {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
